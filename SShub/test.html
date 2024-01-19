@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        #favicon-selector {
+            margin-right: 20px;
+        }
+    </style>
+    <script defer>
+        function changeFavicon(favicon) {
+            const link = document.querySelector("link[rel~='icon']");
+
+            if (!link) {
+                const newLink = document.createElement("link");
+                newLink.rel = "icon";
+                newLink.href = favicon;
+                document.head.appendChild(newLink);
+            } else {
+                link.href = favicon;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Your Website</h1>
+        <div id="favicon-selector">
+            <label for="favicon">Choose Favicon:</label>
+            <select id="favicon" onchange="changeFavicon(this.value)">
+                <option value="favicon1.ico">Favicon 1</option>
+                <option value="favicon2.ico">Favicon 2</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    </header>
+
+    <!-- Your website content goes here -->
+
+</body>
+</html>
+
+
